@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require("fs");
+
 module.exports = {
     inputDir: "input",
     outputDir: "output",
@@ -27,6 +30,7 @@ module.exports = {
     meridiankey3: '当日优惠后消费金额',
     meridiankey4: '日期',
     meridiankey5: '全国语音',
+    meridiankey6: 'AI',
 
     totalkey1: 'e55计费号',
     totalkey2: '投诉编号',
@@ -36,7 +40,39 @@ module.exports = {
     totalkey6: '平均峰值并发',
     totalkey7: '投诉总量',
     totalkey8: '催收投诉总量',
+    totalkey9: '是否AI',
 
     totalSpilt: '_',
     complaintNumberDefault: '-',
+    deleteFolderRecursive: function deleteFolderRecursive(url) {
+        var files = [];
+        /**
+         * 判断给定的路径是否存在
+         */
+        if (fs.existsSync(url)) {
+            /**
+             * 返回文件和子目录的数组
+             */
+            files = fs.readdirSync(url);
+            files.forEach(function (file, index) {
+
+                var curPath = path.join(url, file);
+                /**
+                 * fs.statSync同步读取文件夹文件，如果是文件夹，在重复触发函数
+                 */
+                if (fs.statSync(curPath).isDirectory()) { // recurse
+                    deleteFolderRecursive(curPath);
+
+                } else {
+                    fs.unlinkSync(curPath);
+                }
+            });
+            /**
+             * 清除文件夹
+             */
+            fs.rmdirSync(url);
+        } else {
+            console.log("给定的路径不存在，请给出正确的路径");
+        }
+    }
 }

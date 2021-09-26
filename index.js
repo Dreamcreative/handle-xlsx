@@ -8,6 +8,7 @@ const {
 	totalkey6,
 	totalkey7,
 	totalkey8,
+	totalkey9,
 	totalSpilt,
 	complaintNumberDefault,
 
@@ -17,7 +18,12 @@ const {
 	trinakey3,
 	trinakey4,
 	outputDir,
+	deleteFolderRecursive
 } = require('./utils');
+deleteFolderRecursive(`./${outputDir}`);
+fs.mkdir(`./${outputDir}`, { recursive: true }, (err) => {
+	if (err) throw err;
+});;
 const result = [];
 const totalHeaders = [];
 const complain = require('./src/complain');
@@ -48,8 +54,9 @@ for (let key in data) {
 	}
 
 	// 出账收入
-	item[indexMap[totalkey3]] = meridianData[e55]
-
+	item[indexMap[totalkey3]] = meridianData[e55].data;
+	// 是否AI
+	item[indexMap[totalkey9]] = meridianData[e55].isAI ? "是" : "否";
 	// 码号数量 账户并发 平均峰值并发
 	const companyName = mappingData[e55];
 	const valueObj = trinaData[companyName];
