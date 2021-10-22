@@ -54,9 +54,9 @@ for (let key in data) {
 	}
 
 	// 出账收入
-	item[indexMap[totalkey3]] = meridianData[e55].data;
+	item[indexMap[totalkey3]] = meridianData[e55]?.data ?? '';
 	// 是否AI
-	item[indexMap[totalkey9]] = meridianData[e55].isAI ? "是" : "否";
+	item[indexMap[totalkey9]] = meridianData[e55]?.isAI ? "是" : "否";
 	// 码号数量 账户并发 平均峰值并发
 	const companyName = mappingData[e55];
 	const valueObj = trinaData[companyName];
