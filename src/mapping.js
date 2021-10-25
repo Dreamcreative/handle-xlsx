@@ -7,7 +7,8 @@ const {
   mappingName,
 
   mappingkey1,
-  mappingkey2
+  mappingkey2,
+  mappingkey3
 } = require('./../utils')
 const data = {};
 const indexMap = {};
@@ -23,7 +24,12 @@ mappingData.forEach((item, index) => {
     })
   }
   if (index !== 0 && item[indexMap[mappingkey1]]) {
-    data[item[indexMap[mappingkey2]]] = item[indexMap[mappingkey1]]
+    data[item[indexMap[mappingkey2]]] = {
+      // 集团名称
+      name: item[indexMap[mappingkey1]],
+      // 投诉编号
+      complaintNumber: item[indexMap[mappingkey3]],
+    }
   }
 })
 module.exports = {

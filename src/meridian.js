@@ -11,7 +11,9 @@ const {
   meridiankey3,
   meridiankey4,
   meridiankey5,
-  meridiankey6
+  meridiankey6,
+  meridiankey7,
+  meridiankey8,
 } = require('./../utils')
 
 const data = {};
@@ -36,6 +38,9 @@ meridianData.forEach((item) => {
 })
 for (let key in temp) {
   const item = temp[key];
+  const item0 = item[0];
+  let city = item0[indexMap[meridiankey7]] || '';
+  let name = item0[indexMap[meridiankey8]] || '';
   let isAI = false;
   const result = item.reduce((total, cur) => {
     if (!isAI && cur[indexMap[meridiankey2]].indexOf(meridiankey6) > -1) {
@@ -47,10 +52,11 @@ for (let key in temp) {
     return total;
   }, 0)
 
-  // data[key] = result
   data[key] = {
     data: result,
-    isAI: isAI
+    isAI: isAI,
+    city: city,
+    name: name
   }
 }
 module.exports = {

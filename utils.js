@@ -24,6 +24,7 @@ module.exports = {
 
     mappingkey1: '集团名称',
     mappingkey2: 'E55',
+    mappingkey3: '投诉编号',
 
     meridiankey1: 'e55计费号',
     meridiankey2: '产品名称',
@@ -31,6 +32,8 @@ module.exports = {
     meridiankey4: '日期',
     meridiankey5: '全国语音',
     meridiankey6: 'AI',
+    meridiankey7: '地市',
+    meridiankey8: '集团名称',
 
     totalkey1: 'e55计费号',
     totalkey2: '投诉编号',
@@ -41,6 +44,8 @@ module.exports = {
     totalkey7: '投诉总量',
     totalkey8: '催收投诉总量',
     totalkey9: '是否AI',
+
+    totalHeader: ['地市', '集团名称', 'e55计费号', '投诉编号', '出账收入', '码号数量', '账户并发', '平均峰值并发', '投诉总量', '催收投诉总量', '非催收投诉总量', 'ARPU值', '收入/并发', '收入/非催收投诉', '是否AI'],
 
     totalSpilt: '_',
     complaintNumberDefault: '-',
