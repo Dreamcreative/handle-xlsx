@@ -53,9 +53,13 @@ for (let key in temp) {
   }, 0)
 
   data[key] = {
+    // 数据按天统计值
     data: result,
+    // 是否AI
     isAI: isAI,
+    // 地市
     city: city,
+    // 公司名称
     name: name
   }
 }
