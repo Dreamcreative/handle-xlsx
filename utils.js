@@ -23,7 +23,7 @@ module.exports = {
 
 
     mappingkey1: '集团名称',
-    mappingkey2: 'E55',
+    mappingkey2: 'e55计费号',
     mappingkey3: '投诉编号',
 
     meridiankey1: 'e55计费号',

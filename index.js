@@ -66,10 +66,12 @@ const collectionIndex = indexMap[totalkey8];
 // 是否AI 索引
 const aiIndex = indexMap[totalkey9];
 for (let key in meridianData) {
-	const item = new Array(totalHeader.length).fill(complaintNumberDefault);
 	// const [e55, complaintNumber] = key.split(totalSpilt);
 	// const item = data[key];
-	const { data = 0, isAI = false, city = '', name = '' } = meridianData[key];
+	const { data = 0, isAI = false, city = '', name = '', isNationalVoice = false } = meridianData[key];
+	// 如果不是全国语音，不处理，继续处理下一条数据
+	if (!isNationalVoice) continue;
+	const item = new Array(totalHeader.length).fill(complaintNumberDefault);
 	item[cityIndex] = city;
 	item[nameIndex] = name;
 	// 出账收入

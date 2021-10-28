@@ -42,11 +42,13 @@ for (let key in temp) {
   let city = item0[indexMap[meridiankey7]] || '';
   let name = item0[indexMap[meridiankey8]] || '';
   let isAI = false;
+  let isNationalVoice = false;
   const result = item.reduce((total, cur) => {
     if (!isAI && cur[indexMap[meridiankey2]].indexOf(meridiankey6) > -1) {
       isAI = true;
     }
     if (cur[indexMap[meridiankey2]].indexOf(meridiankey5) > -1) {
+      isNationalVoice = true;
       total += cur[indexMap[meridiankey3]]
     }
     return total;
@@ -60,7 +62,8 @@ for (let key in temp) {
     // 地市
     city: city,
     // 公司名称
-    name: name
+    name: name,
+    isNationalVoice: isNationalVoice
   }
 }
 module.exports = {
