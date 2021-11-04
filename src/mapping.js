@@ -8,7 +8,9 @@ const {
 
   mappingkey1,
   mappingkey2,
-  mappingkey3
+  mappingkey3,
+  mappingkey4,
+  mappingkey5,
 } = require('./../utils')
 const data = {};
 const indexMap = {};
@@ -29,9 +31,15 @@ mappingData.forEach((item, index) => {
       name: item[indexMap[mappingkey1]],
       // 投诉编号
       complaintNumber: item[indexMap[mappingkey3]],
+      // name 不存在时，取name2
+      name2: item[indexMap[mappingkey4]]
     }
   }
 })
+// {
+// e5537048760: { name: '中共文成县委政法委员会', complaintNumber: undefined },
+// e5539081828: { name: '中国人寿保险股份有限公司金华分公司', complaintNumber: undefined }
+// }
 module.exports = {
   data: data
 }

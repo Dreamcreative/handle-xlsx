@@ -81,8 +81,9 @@ for (let key in meridianData) {
 	item[e55Index] = key;
 
 	// 码号数量 账户并发 平均峰值并发
-	const { name: companyName = '', complaintNumber = '' } = mappingData[key] || {};
-	const valueObj = trinaData[companyName];
+	const { name: companyName = '', complaintNumber = '', name2 = "" } = mappingData[key] || {};
+	// 如果 companyName匹配不到，就使用name2匹配
+	const valueObj = trinaData[companyName] || trinaData[name2];
 	item[complaintNumberIndex] = complaintNumber;
 	if (valueObj) {
 		item[codeNumberIndex] = valueObj[trinakey2];

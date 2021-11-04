@@ -25,6 +25,8 @@ module.exports = {
     mappingkey1: '集团名称',
     mappingkey2: 'e55计费号',
     mappingkey3: '投诉编号',
+    mappingkey4: '天合表名称',
+    mappingkey5: '投诉分析表名称',
 
     meridiankey1: 'e55计费号',
     meridiankey2: '产品名称',

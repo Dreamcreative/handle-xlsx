@@ -27,10 +27,14 @@ complaintData.forEach((item, index) => {
   if (index !== 0 && item[indexMap[complaintkey1]]) {
     data[item[indexMap[complaintkey1]]] = {
       [complaintkey2]: item[indexMap[complaintkey2]],
-      [complaintkey3]: item[indexMap[complaintkey3]],
+      [complaintkey3]: item[indexMap[complaintkey3]] ?? '',
     }
   }
 })
+// {
+// hzaf: { '投诉总量': 0, '违规催收': 0 },
+// bjxn: { '投诉总量': 0, '违规催收': 0 }
+// }
 module.exports = {
   data: data
 }

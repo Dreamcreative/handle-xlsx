@@ -66,6 +66,22 @@ for (let key in temp) {
     isNationalVoice: isNationalVoice
   }
 }
+// {
+// e5537055432: {
+//   data: 0,
+//     isAI: false,
+//       city: '',
+//         name: '温州红源汽车销售服务有限公司',
+//           isNationalVoice: false
+// },
+// e5537056112: {
+//   data: 0,
+//     isAI: true,
+//       city: '',
+//         name: '平阳县五水共治建设美丽浙南水乡领导小组办公室',
+//           isNationalVoice: false
+// }
+// }
 module.exports = {
   data: data
 }
