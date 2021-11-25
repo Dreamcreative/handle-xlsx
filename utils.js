@@ -81,5 +81,15 @@ module.exports = {
         } else {
             console.log("给定的路径不存在，请给出正确的路径");
         }
+    },
+    // 将英文括号转为中午括号
+    replaceEnglishBracketsToChiniese: function (name) {
+        const reg = /(（|）)/ig;
+        if (!name) return;
+        name = name.replace(reg, (match) => {
+            if (match === '（') return "(";
+            if (match === '）') return ")";
+        })
+        return name;
     }
 }

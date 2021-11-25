@@ -14,6 +14,7 @@ const {
   meridiankey6,
   meridiankey7,
   meridiankey8,
+  replaceEnglishBracketsToChiniese,
 } = require('./../utils')
 
 const data = {};
@@ -62,7 +63,7 @@ for (let key in temp) {
     // 地市
     city: city,
     // 公司名称
-    name: name,
+    name: replaceEnglishBracketsToChiniese(name),
     isNationalVoice: isNationalVoice
   }
 }

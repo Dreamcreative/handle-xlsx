@@ -10,6 +10,7 @@ const {
   trinakey2,
   trinakey3,
   trinakey4,
+  replaceEnglishBracketsToChiniese,
 } = require('./../utils')
 const data = {};
 const indexMap = {};
@@ -27,7 +28,7 @@ trinaData.forEach((item, index) => {
     })
   }
   if (index !== 0 && item[indexMap[trinakey1]]) {
-    data[item[indexMap[trinakey1]]] = {
+    data[replaceEnglishBracketsToChiniese(item[indexMap[trinakey1]])] = {
       [trinakey2]: item[indexMap[trinakey2]],
       [trinakey3]: item[indexMap[trinakey3]],
       [trinakey4]: item[indexMap[trinakey4]],
