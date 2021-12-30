@@ -1,6 +1,6 @@
 // 经分表
-const xlsx = require("node-xlsx");
-const fs = require("fs");
+const xlsx = require('node-xlsx');
+const fs = require('fs');
 const {
   inputDir,
   outputDir,
@@ -14,29 +14,29 @@ const {
   meridiankey6,
   meridiankey7,
   meridiankey8,
-  replaceEnglishBracketsToChiniese,
-} = require('./../utils')
+  replaceEnglishBracketsToChiniese
+} = require('./../utils');
 
 const data = {};
 const indexMap = {};
 const temp = {};
 
-console.log('正在读取...', meridianName)
+console.log('正在读取...', meridianName);
 const meridian = xlsx.parse(`./${inputDir}/${meridianName}.xlsx`)[0];
 const meridianData = meridian.data || [];
 
-console.log('正在处理...', meridianName)
+console.log('正在处理...', meridianName);
 const firstItem = meridianData.shift();
 firstItem.forEach((name, index) => {
   indexMap[name] = index;
-})
-meridianData.forEach((item) => {
+});
+meridianData.forEach(item => {
   const key = item[indexMap[meridiankey1]];
   if (!temp[key]) {
     temp[key] = [];
   }
   temp[key].push(item);
-})
+});
 for (let key in temp) {
   const item = temp[key];
   const item0 = item[0];
@@ -50,11 +50,10 @@ for (let key in temp) {
     }
     if (cur[indexMap[meridiankey2]].indexOf(meridiankey5) > -1) {
       isNationalVoice = true;
-      total += cur[indexMap[meridiankey3]]
+      total += cur[indexMap[meridiankey3]] || 0;
     }
     return total;
-  }, 0)
-
+  }, 0);
   data[key] = {
     // 数据按天统计值
     data: result,
@@ -65,7 +64,7 @@ for (let key in temp) {
     // 公司名称
     name: replaceEnglishBracketsToChiniese(name),
     isNationalVoice: isNationalVoice
-  }
+  };
 }
 // {
 // e5537055432: {
@@ -85,4 +84,4 @@ for (let key in temp) {
 // }
 module.exports = {
   data: data
-}
+};
